@@ -122,21 +122,17 @@ public class Main {
                 .name("Rock Band 101")
                 .teacher(teacher2)
                 .build();
+
         universityService.createCourse(course1);
-
-        course1.addStudent(student1);
+        universityService.addStudentsToCourse(
+                course1.getId(),
+                java.util.List.of("1", "2", "3", "4", "5", "10"));
         course1.setGrade(student1.getId(), "2");
-        course1.addStudent(student2);
         course1.setGrade(student2.getId(), "3");
-        course1.addStudent(student3);
         course1.setGrade(student3.getId(), "2.3");
-        course1.addStudent(student4);
         course1.setGrade(student4.getId(), "5");
-        course1.addStudent(student5);
         course1.setGrade(student5.getId(), "3.7");
-        course1.addStudent(student10);
         course1.setGrade(student10.getId(), "1.3");
-
 
         // Create second Course
         Course course2 = Course.builder()
@@ -144,24 +140,20 @@ public class Main {
                 .name("Advanced Rock Theory")
                 .teacher(teacher2)
                 .build();
-        universityService.createCourse(course2);
 
-        course2.addStudent(student3);
+        universityService.createCourse(course2);
+        universityService.addStudentsToCourse(
+                course2.getId(),
+                java.util.List.of("3", "4", "5", "6", "7", "8", "9", "10")
+        );
+
         course2.setGrade(student3.getId(), "3.3");
-        course2.addStudent(student4);
         course2.setGrade(student4.getId(), "2");
-        course2.addStudent(student5);
         course2.setGrade(student5.getId(), "2.7");
-        course2.addStudent(student6);
         course2.setGrade(student6.getId(), "1");
-        course2.addStudent(student7);
         course2.setGrade(student7.getId(), "1.3");
-        course2.addStudent(student8);
         course2.setGrade(student8.getId(), "2.3");
-        course2.addStudent(student9);
         course2.setGrade(student9.getId(), "2");
-        course2.addStudent(student10);
-        course2.addStudent(student10);
         course2.setGrade(student10.getId(), "1.7");
 
         Course course3 = Course.builder()
@@ -170,21 +162,18 @@ public class Main {
                 .teacher(teacher1)
                 .build();
 
-        course3.addStudent(student1);
-        course3.setGrade(student1.getId(), "4");
-        course3.addStudent(student2);
-        course3.setGrade(student2.getId(), "5");
-        course3.addStudent(student3);
-        course3.setGrade(student3.getId(), "3.3");
-        course3.addStudent(student8);
-        course3.setGrade(student8.getId(), "4");
-        course3.addStudent(student9);
-        course3.setGrade(student9.getId(), "3");
-        course3.addStudent(student10);
-        course3.addStudent(student10);
-        course3.setGrade(student10.getId(), "1.0");
-
         universityService.createCourse(course3);
+        universityService.addStudentsToCourse(
+                course3.getId(),
+                java.util.List.of("1", "2", "3", "8", "9", "10")
+        );
+
+        course3.setGrade(student1.getId(), "4");
+        course3.setGrade(student2.getId(), "5");
+        course3.setGrade(student3.getId(), "3.3");
+        course3.setGrade(student8.getId(), "4");
+        course3.setGrade(student9.getId(), "3");
+        course3.setGrade(student10.getId(), "1.0");
 
         return universityService;
     }
