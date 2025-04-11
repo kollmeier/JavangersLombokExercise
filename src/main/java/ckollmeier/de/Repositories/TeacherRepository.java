@@ -2,6 +2,8 @@ package ckollmeier.de.Repositories;
 
 import ckollmeier.de.Entities.Teacher;
 
+import java.util.Optional;
+
 public class TeacherRepository {
     /**
      * Datenbank zur Speicherung der Lehrer.
@@ -23,10 +25,10 @@ public class TeacherRepository {
      * Findet einen Lehrer in der Datenbank anhand seiner ID.
      *
      * @param id Die ID des zu findenden Lehrers.
-     * @return Der Lehrer mit der gegebenen ID oder null, falls kein solcher Lehrer existiert.
+     * @return Ein Optional mit dem Lehrer mit der gegebenen ID oder ein leeres Optional, falls kein solcher Lehrer existiert.
      */
-    public Teacher findById(final String id) {
-        return teacherDatabase.get(id);
+    public Optional<Teacher> findById(final String id) {
+        return Optional.ofNullable(teacherDatabase.get(id));
     }
 
     /**

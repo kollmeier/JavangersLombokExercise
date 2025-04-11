@@ -3,6 +3,7 @@ package ckollmeier.de.Repositories;
 import ckollmeier.de.Entities.Course;
 
 import java.util.List;
+import java.util.Optional;
 
 public class CourseRepository {
     /**
@@ -25,10 +26,10 @@ public class CourseRepository {
      * Findet einen Kurs in der Datenbank anhand seiner ID.
      *
      * @param id Die ID des zu findenden Kurses.
-     * @return Der Kurs mit der gegebenen ID oder null, falls kein solcher Kurs existiert.
+     * @return Ein Optional mit dem Kurs der gegebenen ID oder ein leeres Optional, falls kein solcher Kurs existiert.
      */
-    public Course findById(final String id) {
-        return courseDatabase.get(id);
+    public Optional<Course> findById(final String id) {
+        return Optional.ofNullable(courseDatabase.get(id));
     }
 
     /**
