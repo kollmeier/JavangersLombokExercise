@@ -15,6 +15,25 @@ import java.util.Optional;
 
 @RequiredArgsConstructor
 public class UniversityService {
+
+    /**
+     * Adds a list of students to a specific course.
+     *
+     * @param courseId   The ID of the course to which students will be added.
+     * @param studentIds A list of student IDs to be added to the course.
+     * @throws IllegalArgumentException if the course or any of the students are not found.
+     */
+    public void addStudentsToCourse(final String courseId, final List<String> studentIds) {
+        var course = courseRepository.findById(courseId)
+                .orElseThrow(() -> new IllegalArgumentException("Course not found with ID: " + courseId));
+
+        for (String studentId : studentIds) {
+            var student = studentRepository.findById(studentId)
+                    .orElseThrow(() -> new IllegalArgumentException("Student not found with ID: " + studentId));
+            student.addCourse(course);
+        }
+    }
+
     /**
      * Repository for managing teacher entities.
      */
