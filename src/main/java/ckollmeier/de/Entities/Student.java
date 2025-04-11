@@ -1,7 +1,11 @@
 package ckollmeier.de.Entities;
 
 import jakarta.validation.constraints.NotBlank;
-import lombok.*;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.Value;
+import lombok.With;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

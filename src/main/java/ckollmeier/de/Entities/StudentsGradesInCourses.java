@@ -11,7 +11,6 @@ import lombok.ToString;
 import lombok.EqualsAndHashCode;
 
 import java.math.BigDecimal;
-import java.util.Objects;
 
 /**
  * Represents the association between a student, a course, and the student's grade in the course.
